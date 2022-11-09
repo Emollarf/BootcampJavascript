@@ -37,3 +37,22 @@ for (const pokemon of pokemons) {
     }
     
 }
+
+// solución sin bucles
+if( pokemons[0].tipoDePokemon === "Fuego" ){
+    console.log( "Es un pokemon de fuego");
+} else if (pokemons[1].tipoDePokemon === "Fuego") {
+    console.log ("Es un pokemon de fuego");
+} else if (pokemons[2].tipoDePokemon === "Fuego"){
+    console.log ( "Es un pokemon de fuego")
+}
+
+// bucle
+
+pokemons.forEach ( (pokemon) => {
+    if (pokemon.tipoDePokemon === "Fuego") {
+        console.log("Es un pokemon de fuego")
+    }
+    })
+
+
