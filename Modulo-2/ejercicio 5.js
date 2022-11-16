@@ -43,10 +43,15 @@ const personas = [
   
   //  Dime cual es la persona más joven del array.
   
-  function masJoven(listaPersonas,){
-      for (i=0; listaPersonas.length - 1; i++){
-          if(){ 
-              console.log(persona.nombre)
+  
+  
+  function masJoven(listaPersonas1,){
+    let min= listaPersonas1[0];
+    for (i=0; listaPersonas1.length - 1; i++){
+          if(listaPersonas1[i].edad < min.edad){ 
+            min= listaPersonas1[i];
           }  
       }
+      return min;
   }
+  console.log (masJoven(personas))
