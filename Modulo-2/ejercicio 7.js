@@ -15,3 +15,30 @@ console.log("función flecha area de rectagulo" + " " + areaRectangulo1(2,3))
 
 parNonflecha = num => {if (num%2 ==0){ return "par"} else { return "impar"}}
  console.log("funcion flecha par" + " " + parNonflecha(2))
+  
+const pokemons = [
+    {
+      nombre: 'Squirtle',
+      tipo: 'agua',
+    },
+    {
+      nombre: 'Bulbasaur',
+      tipo: 'planta',
+    },
+    {
+      nombre: 'Charmander',
+      tipo: 'fuego',
+    },
+  ];
+  
+mostrarPokemonsArrow = listaPokemon => {for ( const pokemon of listaPokemon){ console.log (pokemon.nombre)}} 
+mostrarPokemonsArrow(pokemons)
+
+mostrarPokemonsTipoArrow = listaPokemon => {
+    for(const pokemon of listaPokemon){
+        if (pokemon.tipo == "fuego"){
+             console.log (pokemon.nombre)
+            }
+        }
+    }
+mostrarPokemonsTipoArrow (pokemons)

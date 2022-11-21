@@ -45,13 +45,13 @@ const personas = [
   
   
   
-  function masJoven(listaPersonas1,){
-    let min= listaPersonas1[0];
-    for (i=0; listaPersonas1.length - 1; i++){
-          if(listaPersonas1[i].edad < min.edad){ 
-            min= listaPersonas1[i];
-          }  
-      }
-      return min;
-  }
-  console.log (masJoven(personas))
+function masJoven(listaDePersonas1){
+    let joven = listaDePersonas1 [0];
+     for ( i=0 ; i < listaDePersonas1.length - 1; i++){
+        if (listaDePersonas1[i].edad < joven.edad){
+            joven = listaDePersonas1[i];
+        }
+    }
+    return joven;
+}
+console.log (masJoven(personas))
