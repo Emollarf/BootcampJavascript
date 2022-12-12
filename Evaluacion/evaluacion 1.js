@@ -53,7 +53,8 @@ function modificarGasto () {
     arrayGastos = filtrarGastoM
     
     let tipoGastoModificado = prompt ('Nuevo precio');
-    crearArray(tipoGasto, tipoGastoModificado);
+    let nTipoGastoModificado = Number(tipoGastoModificado)
+    crearArray(tipoGasto, nTipoGastoModificado);
     console.log(JSON.stringify(arrayGastos))
 
     }
@@ -126,7 +127,8 @@ function modificarIngreso () {
         arrayIngresos = filtrarIngresoM
         
         let tipoIngresoModificado = prompt ('Nuevo precio');
-        crearArrayIngresos(tipoIngreso, tipoIngresoModificado);
+        let nTipoIngresoModificado = Number (tipoIngresoModificado)
+        crearArrayIngresos(tipoIngreso, nTipoIngresoModificado);
         console.log(JSON.stringify(arrayIngresos))
     
         }
@@ -158,12 +160,15 @@ while (opcionMenu !== 0 ){
             let imprimirGastos = prompt ('Selecione Añadir 1, Eliminar 2, Modificar 3, Mostrar 4');
             menuGastos = Number(imprimirGastos)
             if ( menuGastos === 1 ){ 
+                console.log ('Gastos:')
                 añadirGasto ()
             } else if (menuGastos===2 ){
+                console.log ('Gastos:')
                     eliminarGasto()
                 } else if (menuGastos === 4){
                     if (arrayGastos.length >0 ){
                         if (arrayIngresos.length === 0 ){
+                            console.log ('Gastos:')
                             console.log (mostrarGastos()) 
                         } else {
                     let gastosTotales = mostrarGastos ()
@@ -175,17 +180,21 @@ while (opcionMenu !== 0 ){
                     console.log ('No hay gastos')
                 }   
         } else if (menuGastos === 3){
+            console.log ('Gastos:')
             modificarGasto ()
         }} else if (opcionMenu === 2){
         let imprimirIngresos = prompt ('Selecione Añadir 1, Eliminar 2, Modificar 3, Mostrar 4');
         menuIngresos = Number(imprimirIngresos)
             if (menuIngresos === 1 ) {
+                console.log ('Ingresos:')
                 añadirIngreso ()
             } else if ( menuIngresos===2 ){
+                console.log ('Ingresos:')
                 eliminarIngreso()
             } else if ( menuIngresos === 4){
                 if (arrayIngresos.length > 0){
                     if (arrayGastos.length === 0){
+                        console.log ('Ingresos:')
                         console.log (mostrarIngresos())
                     } else {
                 ingresosTotales = mostrarIngresos()
@@ -196,6 +205,7 @@ while (opcionMenu !== 0 ){
                     console.log('No hay ingresos')
                 }
             } else if (menuIngresos === 3){
+                console.log ('Ingresos:')
                 modificarIngreso ()
             }
         } else {
