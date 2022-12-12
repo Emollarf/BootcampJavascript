@@ -17,7 +17,6 @@ function añadirGasto (){
     let tipoGasto = prompt ('Nombre del gasto');
     if ( arrayGastos.length > 0 ){
         let buscaTipoGasto = arrayGastos.find((gasto)=> {return gasto.tipo === tipoGasto})
-            console.log(JSON.stringify(buscaTipoGasto))
             while ( buscaTipoGasto !== undefined){
                 tipoGasto = prompt ('Gasto repetido por favor añada otro nombre');
                 buscaTipoGasto =  arrayGastos.find((gasto)=> {return gasto.tipo === tipoGasto})
@@ -34,7 +33,6 @@ function añadirGasto (){
             console.log(JSON.stringify(arrayGastos));
         }
     }
-
 
 function eliminarGasto () {
     let tipoGasto = prompt ('Tipo de gasto que quieres eliminar');
@@ -58,6 +56,18 @@ function modificarGasto () {
     crearArray(tipoGasto, tipoGastoModificado);
     console.log(JSON.stringify(arrayGastos))
 
+    }
+
+function mostrarGastos () {
+    if (arrayGastos.length ===1){
+        console.log('Has gastado:' + arrayGastos.precio + '€')
+    }else{
+        console.log (JSON.stringify(arrayGastos))
+        let sumaDeTodosLosGastos = arrayGastos.reduce ((acumulador, elemento) => {
+            return acumulador.precio + elemento.precio; });
+            console.log('Has gastado: ' + sumaDeTodosLosGastos + '€');
+            return sumaDeTodosLosGastos 
+        }
     }
       
 let arrayIngresos = []
@@ -97,7 +107,7 @@ function añadirIngreso (){
         }
     
     
-    function eliminarIngreso () {
+function eliminarIngreso () {
         let tipoIngreso = prompt ('Tipo de ingreso que quieres eliminar');
         let filtrarIngreso = arrayIngresos.filter((ingreso) =>{ 
             return ingreso.tipo !== tipoIngreso
@@ -107,7 +117,7 @@ function añadirIngreso (){
     console.log(JSON.stringify(arrayIngresos))
     }
     
-    function modificarIngreso () {
+function modificarIngreso () {
         let tipoIngreso = prompt(' Ingreso que desee modificar');
         let filtrarIngresoM = arrayIngresos.filter((ingreso)=> {
             return ingreso.tipo !== tipoIngreso
@@ -116,16 +126,29 @@ function añadirIngreso (){
         arrayIngresos = filtrarIngresoM
         
         let tipoIngresoModificado = prompt ('Nuevo precio');
-        crearArray(tipoIngreso, tipoIngresoModificado);
+        crearArrayIngresos(tipoIngreso, tipoIngresoModificado);
         console.log(JSON.stringify(arrayIngresos))
     
         }
+
+function mostrarIngresos(){
+    if (arrayIngresos.length === 1){
+        console.log('Has ingresado:' + arrayIngresos.precio + '€')
+    } else {
+        console.log (JSON.stringify(arrayIngresos))
+    let sumaDeIngresos = arrayIngresos.reduce ((acc,el) => {
+        return acc.precio + el.precio; 
+    })
+    console.log('Has ingresado:' + sumaDeIngresos + '€');
+    return sumaDeIngresos
+}}
           
-    let opcionMenu;
-    let menuGastos;
-    let menuIngresos;
+let opcionMenu;
+let menuGastos;
+let menuIngresos;
+
     
-    while (opcionMenu !== 0 ){
+while (opcionMenu !== 0 ){
         let imprimirMenu = prompt ('Selecione menu:' + ' ' +
         ' Salir 0, Gastos 1,  Ingresos 2' 
         )
@@ -135,25 +158,42 @@ function añadirIngreso (){
             menuGastos = Number(imprimirGastos)
             if ( menuGastos === 1 ){ 
                 añadirGasto ()
-            } else if (
-                menuGastos===2 ){
+            } else if (menuGastos===2 ){
                     eliminarGasto()
-                } else if (
-                    menuGastos === 4){
-            console.log (JSON.stringify(arrayGastos))
+                } else if (menuGastos === 4){
+                    if (arrayGastos.length >0 ){
+                        if (arrayIngresos.length === 0 ){
+                            console.log (mostrarGastos()) 
+                        } else {
+                    let gastosTotales = mostrarGastos ()
+                    let ingresosTotales = mostrarIngresos()
+                    let dineroTotal = ingresosTotales - gastosTotales
+                console.log ('Tienes un total: ' + dineroTotal + '€')}
+                    
+                } else {
+                    console.log ('No hay gastos')
+                }   
         } else if (menuGastos === 3){
             modificarGasto ()
-        }} else if (
-        opcionMenu === 2){
+        }} else if (opcionMenu === 2){
         let imprimirIngresos = prompt ('Selecione Añadir 1, Eliminar 2, Modificar 3, Mostrar 4');
         menuIngresos = Number(imprimirIngresos)
             if (menuIngresos === 1 ) {
                 añadirIngreso ()
             } else if ( menuIngresos===2 ){
-                        eliminarIngreso()
-                    } else if (
-                        menuIngresos === 4){
-                console.log (JSON.stringify(arrayIngresos))
+                eliminarIngreso()
+            } else if ( menuIngresos === 4){
+                if (arrayIngresos.length > 0){
+                    if (arrayGastos.length === 0){
+                        console.log (mostrarIngresos())
+                    } else {
+                ingresosTotales = mostrarIngresos()
+                gastosTotales = mostrarGastos ()
+                dineroTotal = ingresosTotales - gastosTotales
+                console.log ('Tienes un total: ' + dineroTotal + '€')}
+                } else {
+                    console.log('No hay ingresos')
+                }
             } else if (menuIngresos === 3){
                 modificarIngreso ()
             }
@@ -162,4 +202,4 @@ function añadirIngreso (){
             break;
         }
     }
-    
+        
