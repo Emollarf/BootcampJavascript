@@ -61,7 +61,8 @@ function modificarGasto () {
 
 function mostrarGastos () {
     if (arrayGastos.length ===1){
-        console.log('Has gastado:' + arrayGastos.precio + '€')
+        console.log('Has gastado:' + arrayGastos[0].precio + '€')
+        return arrayGastos[0].precio
     }else{
         console.log (JSON.stringify(arrayGastos))
         let sumaDeTodosLosGastos = arrayGastos.reduce ((acumulador, elemento) => {
@@ -136,7 +137,8 @@ function modificarIngreso () {
 function mostrarIngresos(){
     if (arrayIngresos.length === 1){
         console.log (JSON.stringify(arrayIngresos))
-        console.log('Has ingresado:' + arrayIngresos.precio + '€')
+        console.log('Has ingresado:' + arrayIngresos[0].precio + '€')
+        return arrayIngresos[0].precio
     } else {
         console.log (JSON.stringify(arrayIngresos))
     let sumaDeIngresos = arrayIngresos.reduce ((acc,element) => {
