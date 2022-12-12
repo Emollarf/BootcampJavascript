@@ -133,11 +133,12 @@ function modificarIngreso () {
 
 function mostrarIngresos(){
     if (arrayIngresos.length === 1){
+        console.log (JSON.stringify(arrayIngresos))
         console.log('Has ingresado:' + arrayIngresos.precio + '€')
     } else {
         console.log (JSON.stringify(arrayIngresos))
-    let sumaDeIngresos = arrayIngresos.reduce ((acc,el) => {
-        return acc.precio + el.precio; 
+    let sumaDeIngresos = arrayIngresos.reduce ((acc,element) => {
+        return acc.precio + element.precio; 
     })
     console.log('Has ingresado:' + sumaDeIngresos + '€');
     return sumaDeIngresos
