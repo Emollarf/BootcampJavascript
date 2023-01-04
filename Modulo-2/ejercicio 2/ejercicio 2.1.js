@@ -9,8 +9,8 @@ app.append(img)
 
 const parrafo = document.querySelector('p')
 /* parrafo.append(img) */
-/* 
-app.insertBefore(img, parrafo) */
+
+app.insertBefore(img, parrafo)
 
 
 const parrafo2 = document.querySelector('p:nth-child(2)')
