@@ -12,7 +12,30 @@
 <body>
     <h2></h2>
     <div>
-
-    </div>    
+    </div>
+    <div >
+        <button  class="boton" onclick="mostrar()"> Añadir pelicula</button>
+        <form id="formulario">
+            <label for="Nombre">Nombre película</label>
+            <input type="text" class="tituloPelicula">
+            <label for="Año">Año película</label>
+            <input type="number" class="añoPelicula" min="1850" max="2050">
+            <label for="diector">Director</label>
+            <input type="text" class="directorPelicula">
+            <label for="actores">Actores</label>
+            <input type="text" class="actoresPelicula">
+            <label for="enlace">Enlace crítica</label>
+            <input type="a.href" class="enlaceWeb">
+            <input type="a.src" class="imagenPelicula">
+            <button id="nuevo" class="boton" type="submit"> Añadir </button>
+        </form>
+        <form id="formBuscar">
+            <input type="text" class="textoBuscarPelicula" placeholder="Busca pelicula" >
+        <button class="boton"> Buscar película </button> 
+    </form>
+    </div>
+    <Nav>
+ 
+    </Nav>
 </body>
 </html>
